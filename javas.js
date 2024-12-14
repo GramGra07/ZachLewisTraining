@@ -162,3 +162,58 @@ function toRun() {
     };
     requestAnimationFrame(update);
 }
+function generateData() {
+    const inputString = document.getElementById('inputString').value+='State';
+    const selector = document.getElementById('selector').value;
+    const list = document.getElementById('inputList').value;
+    
+    console.log('Input String:', inputString);
+    console.log('Selector:', selector);
+    console.log('List:', list);
+    
+    let generatedData = ''; // Initialize generatedData as an empty string
+    let enumData = list.split(',').map(item => item.trim().toUpperCase());
+    enumData.push('IDLE'); // Correctly add 'IDLE' to the enumData array
+
+    if (selector == 'Java') {
+        generatedData = `public enum ${inputString} {${enumData.join(', ')}}\n\n`;
+        generatedData += `private ${inputString} ${inputString}Var = ${inputString}.IDLE;\n\n`;
+        
+        let setters = ''; // Initialize setters as an empty string
+        for (let i = 0; i < enumData.length; i++) {
+            setters += `public void set${enumData[i]}() {\n    ${inputString}Var = ${inputString}.${enumData[i]};\n}\n\n`;
+        }
+        generatedData += setters;
+
+        let switchStatements = ''; // Initialize switchStatements as an empty string
+        switchStatements += `switch (${inputString}Var) {\n`;
+        for (let i = 0; i < enumData.length; i++) {
+            switchStatements += `    case ${enumData[i]}:\n        // Add code here\n        break;\n`;
+        }
+        switchStatements += '}\n';
+        generatedData += switchStatements;
+
+    } else if (selector == 'Kotlin') {
+        generatedData = `enum class ${inputString} {${enumData.join(', ')}}\n\n`;
+        generatedData += `private var ${inputString}Var: ${inputString} = ${inputString}.IDLE\n\n`;
+        
+        let setters = ''; // Initialize setters as an empty string
+        for (let i = 0; i < enumData.length; i++) {
+            setters += `fun set${enumData[i]}() {\n    ${inputString}Var = ${inputString}.${enumData[i]}\n}\n\n`;
+        }
+        generatedData += setters;
+
+        let whenStatements = ''; // Initialize whenStatements as an empty string
+        whenStatements += `when (${inputString}Var) {\n`;
+        for (let i = 0; i < enumData.length; i++) {
+            whenStatements += `    ${inputString}.${enumData[i]} -> {\n        // Add code here\n    }\n`;
+        }
+        whenStatements += '}\n';
+        generatedData += whenStatements;
+    }
+    
+    console.log('Generated Data:', generatedData);
+    
+    // Display the generated data
+    document.getElementById('outputText').innerText = generatedData;
+}
