@@ -163,50 +163,74 @@ function toRun() {
     requestAnimationFrame(update);
 }
 function generateData() {
-    const inputString = document.getElementById('inputString').value;
+    let inputString = document.getElementById('inputString').value;
     const selector = document.getElementById('selector').value;
     const list = document.getElementById('inputList').value;
-    inputString+='State';
+    inputString += 'State';
+    
+    // Error handling
+    let enumData = list.split(',').map(item => item.trim().toUpperCase());
+    const uniqueEnumData = [...new Set(enumData)];
+    if (enumData.length !== uniqueEnumData.length) {
+        alert('Error: The list contains duplicate enums.');
+        return;
+    }
+    if (inputString === 'State') {
+        alert('Error: The mechanism name cannot be empty.');
+        return;
+    }
+    if (list === '') {
+        alert('Error: The list cannot be empty.');
+        return;
+    }
+    if (selector !== 'Java' && selector !== 'Kotlin') {
+        alert('Error: The selector must be either "Java" or "Kotlin".');
+        return;
+    }
+    
+    uniqueEnumData.push('IDLE'); // Correctly add 'IDLE' to the enumData array
     
     let generatedData = ''; // Initialize generatedData as an empty string
-    let enumData = list.split(',').map(item => item.trim().toUpperCase());
-    enumData.push('IDLE'); // Correctly add 'IDLE' to the enumData array
 
-    if (selector == 'Java') {
-        generatedData = `public enum ${inputString} {${enumData.join(', ')}}\n\n`;
+    if (selector === 'Java') {
+        generatedData = `public enum ${inputString} {${uniqueEnumData.join(', ')}}\n\n`;
         generatedData += `private ${inputString} ${inputString}Var = ${inputString}.IDLE;\n\n`;
         
         let setters = ''; // Initialize setters as an empty string
-        for (let i = 0; i < enumData.length; i++) {
-            setters += `public void set${enumData[i]}() {\n    ${inputString}Var = ${inputString}.${enumData[i]};\n}\n\n`;
+        for (let i = 0; i < uniqueEnumData.length; i++) {
+            setters += `public void set${uniqueEnumData[i]}() {\n    ${inputString}Var = ${inputString}.${uniqueEnumData[i]};\n}\n\n`;
         }
         generatedData += setters;
 
         let switchStatements = ''; // Initialize switchStatements as an empty string
         switchStatements += `switch (${inputString}Var) {\n`;
-        for (let i = 0; i < enumData.length; i++) {
-            switchStatements += `    case ${enumData[i]}:\n        // Add code here\n        break;\n`;
+        for (let i = 0; i < uniqueEnumData.length; i++) {
+            switchStatements += `    case ${uniqueEnumData[i]}:\n        // Add code here\n        break;\n`;
         }
         switchStatements += '}\n';
         generatedData += switchStatements;
 
-    } else if (selector == 'Kotlin') {
-        generatedData = `enum class ${inputString} {${enumData.join(', ')}}\n\n`;
+        document.getElementById('outputText').className = 'java-format';
+
+    } else if (selector === 'Kotlin') {
+        generatedData = `enum class ${inputString} {${uniqueEnumData.join(', ')}}\n\n`;
         generatedData += `private var ${inputString}Var: ${inputString} = ${inputString}.IDLE\n\n`;
         
         let setters = ''; // Initialize setters as an empty string
-        for (let i = 0; i < enumData.length; i++) {
-            setters += `fun set${enumData[i]}() {\n    ${inputString}Var = ${inputString}.${enumData[i]}\n}\n\n`;
+        for (let i = 0; i < uniqueEnumData.length; i++) {
+            setters += `fun set${uniqueEnumData[i]}() {\n    ${inputString}Var = ${inputString}.${uniqueEnumData[i]}\n}\n\n`;
         }
         generatedData += setters;
 
         let whenStatements = ''; // Initialize whenStatements as an empty string
         whenStatements += `when (${inputString}Var) {\n`;
-        for (let i = 0; i < enumData.length; i++) {
-            whenStatements += `    ${inputString}.${enumData[i]} -> {\n        // Add code here\n    }\n`;
+        for (let i = 0; i < uniqueEnumData.length; i++) {
+            whenStatements += `    ${inputString}.${uniqueEnumData[i]} -> {\n        // Add code here\n    }\n`;
         }
         whenStatements += '}\n';
         generatedData += whenStatements;
+
+        document.getElementById('outputText').className = 'kotlin-format';
     }
     
     console.log('Generated Data:', generatedData);
