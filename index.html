@@ -18,21 +18,36 @@
                 font-family: Arial, sans-serif;
                 margin: 0;
                 padding: 0;
-                background-color: #f4f4f4;
+                background-color: #f0f0f0; /* Change the background color of the entire page */
                 color: #333;
+                height: 100vh;
+                width: 100vw;
+                display: flex;
+                flex-direction: column;
             }
             header {
                 background-color: #333;
                 color: #fff;
                 padding: 20px;
                 text-align: center;
+                flex-shrink: 0;
+                white-space: nowrap;
+            }
+            main {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
             }
             section {
                 padding: 20px;
                 margin: 20px;
-                background-color: #fff;
+                background-color: #e0e0e0; /* Change the background color of the sections */
                 border-radius: 8px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 100vw;
             }
             form {
                 display: flex;
@@ -75,32 +90,33 @@
         <header class="active">
             <div>
                 <h1>State Machine Maker</h1>
-                <br />
+                <br>
                 <p>5115 Escape Velocity</p>
             </div>
         </header>
         <div id="particles-js"></div>
+        <main>
+            <section class="active">
+                <form id="dataForm">
+                    <label for="inputString">Mechanism Name:</label>
+                    <input type="text" id="inputString" name="inputString" required />
+                    <label for="inputList">States (comma-separated):</label>
+                    <input type="text" id="inputList" name="inputList" required />
+                    <label for="selector">Language:</label>
+                    <select id="selector" name="selector" required>
+                        <option value="Java">Java</option>
+                        <option value="Kotlin">Kotlin</option>
+                    </select>
+                    <button type="button" onclick="generateData()">Generate Data</button>
+                </form>
+            </section>
 
-        <section class="active">
-            <form id="dataForm">
-                <label for="inputString">Mechanism Name:</label>
-                <input type="text" id="inputString" name="inputString" required />
-                <label for="inputList">States (comma-separated):</label>
-                <input type="text" id="inputList" name="inputList" required />
-                <label for="selector">Language:</label>
-                <select id="selector" name="selector" required>
-                    <option value="Java">Java</option>
-                    <option value="Kotlin">Kotlin</option>
-                </select>
-                <button type="button" onclick="generateData()">Generate Data</button>
-            </form>
-        </section>
-
-        <section class="active">
-            <div id="output">
-                <h2>Output</h2>
-                <pre id="outputText"></pre>
-            </div>
-        </section>
+            <section class="active">
+                <div id="output">
+                    <h2>Output</h2>
+                    <pre id="outputText"></pre>
+                </div>
+            </section>
+        </main>
     </body>
 </html>

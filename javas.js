@@ -163,13 +163,10 @@ function toRun() {
     requestAnimationFrame(update);
 }
 function generateData() {
-    const inputString = document.getElementById('inputString').value+='State';
+    const inputString = document.getElementById('inputString').value;
     const selector = document.getElementById('selector').value;
     const list = document.getElementById('inputList').value;
-    
-    console.log('Input String:', inputString);
-    console.log('Selector:', selector);
-    console.log('List:', list);
+    inputString+='State';
     
     let generatedData = ''; // Initialize generatedData as an empty string
     let enumData = list.split(',').map(item => item.trim().toUpperCase());
