@@ -198,7 +198,7 @@ function generateData() {
         
         let setters = ''; // Initialize setters as an empty string
         for (let i = 0; i < uniqueEnumData.length; i++) {
-            setters += `public void set${uniqueEnumData[i]}() {\n    ${inputString}Var = ${inputString}.${uniqueEnumData[i]};\n}\n\n`;
+            setters += `public void set${inputString}${uniqueEnumData[i]}() {\n    ${inputString}Var = ${inputString}.${uniqueEnumData[i]};\n}\n\n`;
         }
         generatedData += setters;
 
@@ -218,7 +218,7 @@ function generateData() {
         
         let setters = ''; // Initialize setters as an empty string
         for (let i = 0; i < uniqueEnumData.length; i++) {
-            setters += `fun set${uniqueEnumData[i]}() {\n    ${inputString}Var = ${inputString}.${uniqueEnumData[i]}\n}\n\n`;
+            setters += `fun set${inputString}${uniqueEnumData[i]}() {\n    ${inputString}Var = ${inputString}.${uniqueEnumData[i]}\n}\n\n`;
         }
         generatedData += setters;
 
