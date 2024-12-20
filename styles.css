@@ -1,160 +1,77 @@
-body,
-canvas {
-    margin: 0;
-    font: normal 80% Arial, Helvetica, sans-serif;
-    display: block;
+body{
+    /* background-color: #2d332d; */
+    background-color: #fffffd;
 }
-body {
-    overflow-x: hidden; /* Disable horizontal scrollbar */
+main{
+    margin-top: 50px;
 }
-
-#particles-js {
+.header-text{
+    justify-content: center;
+    color: #fffffd;
+    text-align: left;
+    padding: 0%;
+    margin: 0%;
+}
+.header-text h1{
+    font-size: 2.2em;
+}
+.header-text p{
+    font-size: 1.2em;
+}
+.header-buttons{
+    justify-content: right;
+    align-items: right;
+    padding-right: 50px;
+    gap: 30px;
+    margin-right: 30px;
+}
+.header-buttons img{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    accent-color: #fffffd;
+    filter: invert(100%);
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.logo-filled{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 30px;
+}
+.logo-filled p{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    color:#fffffd;
+    font-size: 0.9em;
+}
+.static-header{
     position: fixed;
     top: 0;
     left: 0;
+    padding: 10px 20px;
     width: 100%;
-    height: 100vh;
-    background: #333 url("") no-repeat 50% 50%;
-    background-size: cover;
-    z-index: -1;
-}
-.progress-bar {
-    width: 100%;
-    background-color: #f1f1f1;
-    border: 1px solid #ddd;
-    height: 10px;
-    position: relative;
-    overflow: hidden; /* Added to limit the progress bar width */
-}
-
-.progress {
-    height: 100%;
-    background-color: #1c8f61;
-    position: absolute;
-}
-
-.language-label {
-    text-align: center;
-    margin-top: 4px;
-}
-header {
-    background: #333;
-    color: #fff;
-    padding: 2em;
+    height:min-content;
+    z-index: 1000;
+    background-color: #2d332d;
+    align-items: center;
     display: flex;
-    justify-content: space-between; /* Align items horizontally */
-    align-items: center; /* Align items vertically */
-    font: bold 1.5em/0.6 sans-serif;
-    text-transform: uppercase;
+    justify-content: space-between;
+    font-family: 'Courier New', Courier, monospace;
 }
-header a.feedback-link {
-    color: #fff;
-    margin: 0 1em;
-    text-decoration: none;
-}
-
-header h1,
-header p {
-    margin: 0; /* Remove default margin */
-}
-
-.social-icons {
-    display: flex; /* Align icons horizontally */
-    height: 100%; /* Set the height to 100% */
-}
-
-.social-icons a {
-    color: #fff;
-    margin-left: 1em;
-    text-decoration: none;
-    font-size: 1.5em; /* Adjust the size of social icons */
-}
-
-section {
-    max-width: 1000px;
-    margin: 2em auto;
-    padding: 1em;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s, transform 0.5s;
-}
-
-section.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-h2 {
-    font-size: 1.8em;
-    color: #333;
-}
-
-p {
-    font-size: 1.2em;
-    color: #555;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin-bottom: 0.5em;
-    transition: transform 0.3s ease-in-out;
-}
-a:hover {
-    transform: scale(1.2);
-}
-
-.portfolio-images {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1em;
-}
-
-.portfolio-image {
-    width: 100%;
-    height: 100%;
+.round-logo{
     border-radius: 50%;
-    overflow: hidden;
-    margin: 0 1em;
-    transition: transform 0.3s ease-in-out;
-}
-
-.portfolio-image img {
-    width: 100%;
-    height: 100%;
-    object-fit:fill;
-    object-position: center;
-    border-radius: 50%;
-    overflow: hidden;
-}
-
-.portfolio-image:hover {
-    transform: scale(1.2);
-}
-
-.about-me {
-    margin-top: 2em;
-    text-align: justify;
-    font-size: 1.2em;
-}
-
-.contact-info {
-    margin-top: 2em;
-}
-
-.footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1em;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    font-size: 1.2em;
+    width: 150px;
+    height: 150px;
 }
