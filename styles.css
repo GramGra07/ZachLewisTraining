@@ -3,7 +3,7 @@ body{
     background-color: #fffffd;
 }
 main{
-    margin-top: 50px;
+    margin-top: 25px;
 }
 .header-text{
     justify-content: center;
@@ -11,18 +11,19 @@ main{
     text-align: left;
     padding: 0%;
     margin: 0%;
+    flex:2;
 }
 .header-text h1{
-    font-size: 2.2em;
+    font-size: 375%;
 }
-.header-text p{
-    font-size: 1.2em;
+.header-text h2{
+    font-size: 150%;
 }
 .header-buttons{
     justify-content: right;
     align-items: right;
     padding-right: 50px;
-    gap: 30px;
+    gap: 60px;
     margin-right: 30px;
 }
 .header-buttons img{
@@ -37,18 +38,22 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex:1;
 }
 .row{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex:1;
 }
 .logo-filled{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 30px;
+    height: 100%;
+    width: 100%;
+    margin-left: 0;
 }
 .logo-filled p{
     font-family: 'Courier New', Courier, monospace;
@@ -60,9 +65,11 @@ main{
     position: fixed;
     top: 0;
     left: 0;
-    padding: 10px 20px;
+    padding: 10px 10px;
+    padding-left: 0;
+    margin-left: 0;
     width: 100%;
-    height:min-content;
+    height:auto;
     z-index: 1000;
     background-color: #2d332d;
     align-items: center;
@@ -72,6 +79,6 @@ main{
 }
 .round-logo{
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 30%;
+    height: 30%;
 }
