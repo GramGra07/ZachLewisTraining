@@ -161,6 +161,7 @@ body {
 
     .profile-pic {
         max-width: 60%;
+        max-height: 60%;
     }
 
     .anecdotes div {
@@ -190,6 +191,7 @@ body {
 
     .profile-pic {
         max-width: 50%;
+        max-height: 50%;
     }
 
     .round-logo {
