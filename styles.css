@@ -1,14 +1,20 @@
 body{
     /* background-color: #2d332d; */
     background-color: #fffffd;
+    margin: 0;
+    padding: 0;
 }
 main{
     margin-top: 25px;
+    padding-top: 100px; /* Adjust this value based on the height of your header */
 }
 .header-text{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     color: #fffffd;
-    text-align: left;
+    text-align: center;
     padding: 0%;
     margin: 0%;
     flex:2;
@@ -20,11 +26,12 @@ main{
     font-size: 150%;
 }
 .header-buttons{
-    justify-content: right;
-    align-items: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-right: 50px;
     gap: 60px;
-    margin-right: 30px;
+    margin-right: 90px; /* Increased right margin */
 }
 .header-buttons img{
     width: 40px;
@@ -36,8 +43,6 @@ main{
 .column{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     flex:1;
 }
 .row{
@@ -62,14 +67,13 @@ main{
     font-size: 0.9em;
 }
 .static-header{
-    position: fixed;
     top: 0;
     left: 0;
     padding: 10px 10px;
     padding-left: 0;
     margin-left: 0;
     width: 100%;
-    height:auto;
+    height: auto;
     z-index: 1000;
     background-color: #2d332d;
     align-items: center;
@@ -77,8 +81,113 @@ main{
     justify-content: space-between;
     font-family: 'Courier New', Courier, monospace;
 }
+.general-text{
+    font-family: 'Courier New', Courier, monospace;
+    color: #000000;
+}
+li{
+    list-style-type: disc;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000000;
+    font-size: larger;
+}
+.profile-pic{
+    margin-right: 40px;
+    margin-top: 20px;
+    border-radius: 50%;
+    max-width: 80%;
+}
+h3{
+    font-family: 'Courier New', Courier, monospace;
+    color: #000000;
+    font-style: normal;
+    font-weight: normal;
+}
+.about{
+    max-width: 100%;
+}
+.anecdotes{
+    max-width: 100%;
+}
+.below-header{
+    margin-top: 0.0;
+    margin-left: 40px;
+}
 .round-logo{
     border-radius: 50%;
     width: 30%;
     height: 30%;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .header-text {
+        text-align: center;
+    }
+    .header-text h1 {
+        font-size: 300%; /* Adjusted text size */
+    }
+    .header-text h2 {
+        font-size: 130%; /* Adjusted text size */
+    }
+    .header-buttons {
+        justify-content: center;
+        padding-right: 0;
+        margin-right: 60px; /* Increased right margin */
+        gap: 20px;
+    }
+    .header-buttons img {
+        width: 30px;
+        height: 30px;
+        margin: 5px;
+    }
+    .static-header {
+        flex-direction: column;
+        padding: 10px;
+    }
+    .round-logo {
+        width: 50%;
+        height: 50%;
+    }
+    .profile-pic {
+        margin-right: 20px;
+        margin-top: 10px;
+        max-width: 60%;
+    }
+    .below-header {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-text h1 {
+        font-size: 250%;
+    }
+    .header-text h2 {
+        font-size: 120%;
+    }
+    .header-buttons {
+        gap: 10px;
+        margin-right: 50px; /* Increased right margin */
+    }
+    .header-buttons img {
+        width: 25px;
+        height: 25px;
+    }
+    .round-logo {
+        width: 70%;
+        height: 70%;
+    }
+    .profile-pic {
+        margin-right: 10px;
+        margin-top: 5px;
+        max-width: 50%;
+    }
+    .below-header {
+        margin-left: 10px;
+    }
 }
