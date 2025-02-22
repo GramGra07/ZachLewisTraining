@@ -108,6 +108,19 @@ h3{
 }
 .anecdotes{
     max-width: 100%;
+    margin: 20px;
+}
+.anecdotes img{
+    border-radius: 50%;
+    width: 20%;
+    gap: 5%;
+    margin-bottom: 20px;
+}
+.anecdotes p{
+    font-family: 'Courier New', Courier, monospace;
+    color: #000000;
+    font-size: 1.2em;
+    margin: 20px;
 }
 .below-header{
     margin-top: 0.0;
