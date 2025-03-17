@@ -57,6 +57,15 @@ body {
     margin-left: auto; /* Pushes it to the far right */
 }
 
+.about h1{
+    font-weight: bold;
+}
+.areas h1{
+    font-weight: bold;
+}
+.certs h1{
+    font-weight: bold;
+}
 
 .header-buttons img {
     width: 40px;
@@ -107,6 +116,7 @@ body {
 .general-text {
     color: black;
     font-style: normal;
+    font-weight: normal;
 }
 
 /* Testimonials */
