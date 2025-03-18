@@ -92,7 +92,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* margin-left: 20px; */
+    margin-left: 20px;
     justify-content: center;
 }
 
@@ -188,6 +188,9 @@ body {
 
     .round-logo {
         width: 25%;
+    }
+    .logo-filled {
+        margin-left: 0;
     }
 }
 
