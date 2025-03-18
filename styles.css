@@ -92,7 +92,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     justify-content: center;
 }
 
@@ -154,6 +154,7 @@ body {
     .static-header {
         flex-direction: column;
         padding: 15px 0;
+        align-items: center;
     }
 
     .header-text h1 {
