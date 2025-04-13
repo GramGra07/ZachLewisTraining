@@ -3,9 +3,7 @@ const people = [
     has taught me specifically about athletic training and training
     intentionally in the gym. I recommended him to everyone I know!`},
   { name: "Michelle", born: 1977 ,tm:`
-              Zach is more than just a trainer, he's a friend. He's always there
-              to support me and help me reach my goals. I can't recommend him
-              enough.`},
+              Zach is passionate, knowledgeable and truly interested in making you stronger, more confident and able to continue to do the activities you enjoy, especially as you age.  I have seen noticeable results in just a few months!`},
     { name: "Zach", born: 1997 ,tm:`Zach's personalized approach to training has made all the
               difference. He truly cares about his clients and their success.`},
     { name: "Dylan", born: 1997 ,tm:`Zach is a great trainer! He is very knowledgeable and  has
